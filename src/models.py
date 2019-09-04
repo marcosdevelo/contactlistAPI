@@ -8,7 +8,7 @@ class Contact(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     phone = db.Column(db.String(100), unique=True, nullable=False)
     address = db.Column(db.String(120), unique=True, nullable=False)
-    agenda_slug = db.Column(db.String(120), unique=True, nullable=False)
+
 
     def __repr__(self):
         return '<Person %r>' % self.username
@@ -20,5 +20,4 @@ class Contact(db.Model):
             "email": self.email,
             "phone": self.phone,
             "address": self.address,
-            "agenda_slug": self.agenda_slug
-        }
+            }

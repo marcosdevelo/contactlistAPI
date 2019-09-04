@@ -47,7 +47,7 @@ def post_persona():
     # if body["email"].find('@') == -1:
     #     raise APIException('Mamita te falta un arroba en el email', status_code=400)
 
-    user1 = Contact(full_name=body["full_name"], email=body["email"], phone=body["phone"], address=body["address"], agenda_slug=body["agenda_slug"])
+    user1 = Contact(full_name=body["full_name"], email=body["email"], phone=body["phone"], address=body["address"])
     db.session.add(user1)
     db.session.commit()
 
@@ -69,8 +69,6 @@ def put_persona(id):
         user1.phone = body["phone"]
     if "address" in body:
         user1.address = body["address"]
-    if "agenda_slug" in body:
-        user1.agenda_slug = body["agenda_slug"]
     db.session.commit()
 
     return jsonify(user1.serialize()), 200
